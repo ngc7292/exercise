@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b5801a25-e3e8-4ed5-b958-5f935fbdd26a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/chap2_linear_regression/other_solve.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chap2_linear_regression/solve.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chap2_linear_regression/solve.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chap1_warmup/numpy_ tutorial.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/chap1_warmup/numpy_ tutorial.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chap2_linear_regression/exercise-linear_regression.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/chap2_linear_regression/exercise-linear_regression.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chap2_linear_regression/linear_regression-tf2.0.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/chap2_linear_regression/linear_regression-tf2.0.ipynb" afterDir="false" />
-    </list>
+    <list default="true" id="b5801a25-e3e8-4ed5-b958-5f935fbdd26a" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
