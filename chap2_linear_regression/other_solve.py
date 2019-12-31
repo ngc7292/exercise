@@ -23,7 +23,8 @@ def multinomial_basis(x, feature_num=10):
     # ==========
     # todo '''请实现多项式基函数'''
     # ==========
-
+    for i in range(0,feature_num):
+        np.insert(x,)
     ret = None
     return ret
 

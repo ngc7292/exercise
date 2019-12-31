@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b5801a25-e3e8-4ed5-b958-5f935fbdd26a" name="Default Changelist" comment="" />
+    <list default="true" id="b5801a25-e3e8-4ed5-b958-5f935fbdd26a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/chap2_linear_regression/other_solve.py" beforeDir="false" afterPath="$PROJECT_DIR$/chap2_linear_regression/other_solve.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,12 +41,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="2443" />
+          <entry key="py" value="2485" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="2443" />
+          <entry key="Python" value="2485" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -105,11 +107,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/chap2_linear_regression/other_solve.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="33" column="25" lean-forward="true" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+            <state relative-caret-position="414">
+              <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
-                <marker date="1577776473739" expanded="true" signature="906:932" ph="..." />
+                <marker date="1577778874917" expanded="true" signature="962:988" ph="..." />
               </folding>
             </state>
           </provider>
@@ -194,8 +196,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="97" />
-    <option name="y" value="68" />
+    <option name="x" value="546" />
+    <option name="y" value="32" />
     <option name="width" value="1260" />
     <option name="height" value="1047" />
   </component>
@@ -321,7 +323,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="97" y="68" width="1260" height="1047" extended-state="0" />
+    <frame x="546" y="32" width="1260" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.205" />
@@ -477,11 +479,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/chap2_linear_regression/other_solve.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="33" column="25" lean-forward="true" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+        <state relative-caret-position="414">
+          <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-            <marker date="1577776473739" expanded="true" signature="906:932" ph="..." />
+            <marker date="1577778874917" expanded="true" signature="962:988" ph="..." />
           </folding>
         </state>
       </provider>
