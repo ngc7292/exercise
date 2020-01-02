@@ -26,7 +26,6 @@ def linner_reg_fit(x, y,  iterations=1500, alpha=0.01):
     x = np.insert(x, len(x[0]), 1, 1)
     theta = np.zeros((len(x[0]), 1))
 
-
     loss_history = np.zeros((iterations, 1))
     for item in range(iterations):
         theta = theta - alpha / m * np.dot(x.T, (np.dot(x, theta) - y))
@@ -38,7 +37,7 @@ x = np.reshape(x,(len(x),1))
 y = np.reshape(y,(len(y),1))
 
 
-theta,loss_history = linner_reg_fit(x,y)
+theta,loss_history = linner_reg_fit(x,y,100)
 
 
 x_insert = np.insert(x, len(x[0]), 1, 1)
@@ -48,6 +47,6 @@ plt.plot(x, np.dot(x_insert, theta), '-')
 plt.scatter(x, y)
 
 plt.figure(2)
-plt.plot(range(1500),loss_history)
+plt.plot(range(100),loss_history)
 
 plt.show()

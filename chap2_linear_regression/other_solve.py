@@ -23,9 +23,10 @@ def multinomial_basis(x, feature_num=10):
     # ==========
     # todo '''请实现多项式基函数'''
     # ==========
-    for i in range(0,feature_num):
-        np.insert(x,)
     ret = None
+    for i in range(3):
+       ret = np.concatenate((ret, x ** i), 1) if i != 0 else x ** i
+
     return ret
 
 
@@ -34,7 +35,14 @@ def gaussian_basis(x, feature_num=10):
     # ==========
     # todo '''请实现高斯基函数'''
     # ==========
-    ret = None
+    centers = np.linspace(0, 25, feature_num)
+    width = 1.0 * (centers[1] - centers[0])
+    x = np.expand_dims(x, axis=1)
+    x = np.concatenate([x] * feature_num, axis=1)
+
+    out = (x - centers) / width
+    ret = np.exp(-0.5 * out ** 2)
+    ret = np.insert(ret,0,1,1)
     return ret
 
 
@@ -43,15 +51,30 @@ def evaluate(ys, ys_pred):
     std = np.sqrt(np.mean(np.abs(ys - ys_pred) ** 2))
     return std
 
-def main(x_train,y_train, basic_function = None):
+def loss(x, y, theta):
+    m = np.size(x[:, 0])
+    return 1 / (2 * m) * np.sum((np.dot(x, theta) - y) ** 2)
 
+def main(x_train, y_train, basic_function=None, iterations=200000, alpha=0.1):
+    basic_function = gaussian_basis if basic_function is None else basic_function
+    x_train = basic_function(x_train)
+    y_train = np.reshape(y_train, (len(y_train),1))
+    theta = np.zeros((len(x_train[0]), 1))
+    m = len(x_train)
+    loss_history = np.zeros((iterations, 1))
+    for i in range(iterations):
+        theta = theta - alpha / m * np.dot(x_train.T,(np.dot(x_train,theta) - y_train))
+        loss_history[i] = loss(x_train,y_train,theta)
 
+    plt.figure()
+    plt.plot(range(iterations), loss_history)
+    plt.show()
 
-    def f(x):
-        pass
+    def f(X_test):
+        X_test = basic_function(X_test)
+        return np.dot(X_test, theta)
 
     return f
-
 
 
 # 程序主入口（建议不要改动以下函数的接口）
