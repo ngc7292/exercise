@@ -62,6 +62,8 @@ def main(x_train, y_train, basic_function=None, iterations=200000, alpha=0.1):
     theta = np.zeros((len(x_train[0]), 1))
     m = len(x_train)
     loss_history = np.zeros((iterations, 1))
+    
+    
     for i in range(iterations):
         theta = theta - alpha / m * np.dot(x_train.T,(np.dot(x_train,theta) - y_train))
         loss_history[i] = loss(x_train,y_train,theta)
