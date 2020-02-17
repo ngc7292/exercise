@@ -30,14 +30,14 @@ def bias_variable(shape):
 def conv2d(x, W):
     # 每一维度  滑动步长全部是 1， padding 方式 选择 same
     # 提示 使用函数  tf.nn.conv2d
-    return tf.nn.conv2d(x, W, 1, padding="SAME",)
+    return tf.nn.conv2d(x, W, 1, padding="SAME", )
 
 
 def max_pool_2x2(x):
     # 滑动步长 是 2步; 池化窗口的尺度 高和宽度都是2; padding 方式 请选择 same
     # 提示 使用函数  tf.nn.max_pool
     
-    return 0
+    return
 
 
 # define placeholder for inputs to network
