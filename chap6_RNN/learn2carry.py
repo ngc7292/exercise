@@ -5,8 +5,7 @@ import numpy as np
 import tensorflow as tf
 import collections
 from tensorflow import keras
-from tensorflow.keras import layers
-from tensorflow.keras import layers, optimizers, datasets
+from tensorflow.keras import layers, optimizers, datasets, models
 import os, sys
 
 
@@ -87,9 +86,7 @@ def prepare_batch(Nums1, Nums2, results, maxlen):
 class myRNNModel(keras.Model):
     def __init__(self):
         super(myRNNModel, self).__init__()
-        self.embed_layer = tf.keras.layers.Embedding(10, 32,
-                                                     batch_input_shape=[None, None])
-        
+        self.embed_layer = tf.keras.layers.Embedding(10, 32, batch_input_shape=[None, None])
         self.rnncell = tf.keras.layers.SimpleRNNCell(64)
         self.rnn_layer = tf.keras.layers.RNN(self.rnncell, return_sequences=True)
         self.dense = tf.keras.layers.Dense(10)
@@ -99,8 +96,13 @@ class myRNNModel(keras.Model):
         '''
         此处完成上述图中模型
         '''
+        x_1 = self.embed_layer(num1)
+        x_2 = self.embed_layer(num2)
+        output = layers.concatenate([x_1,x_2])
+        rnn_r = self.rnn_layer(output)
+        logits = self.dense(rnn_r)
+        
         return logits
-
 
 @tf.function
 def compute_loss(logits, labels):
@@ -127,14 +129,23 @@ def train(steps, model, optimizer):
     for step in range(steps):
         datas = gen_data_batch(batch_size=200, start=0, end=555555555)
         Nums1, Nums2, results = prepare_batch(*datas, maxlen=11)
-        loss = train_one_step(model, optimizer, tf.constant(Nums1, dtype=tf.int32),
-                              tf.constant(Nums2, dtype=tf.int32),
-                              tf.constant(results, dtype=tf.int32))
+        x = tf.constant(Nums1, dtype=tf.int32)
+        y = tf.constant(Nums2, dtype=tf.int32)
+        
+        label = tf.constant(results, dtype=tf.int32)
+        
+        loss = train_one_step(model, optimizer, x, y, label)
+        
         if step % 50 == 0:
             print('step', step, ': loss', loss.numpy())
     
     return loss
 
+def train_2(steps):
+    datas = gen_data_batch(200,0,555555555)
+    x_1, x_2, results = prepare_batch(*datas, maxlen=11)
+    
+    print(1)
 
 def evaluate(model):
     datas = gen_data_batch(batch_size=2000, start=555555555, end=999999999)
@@ -151,5 +162,10 @@ def evaluate(model):
 
 if __name__ == '__main__':
     optimizer = optimizers.Adam(0.001)
-    model = myRNNaModel()
+    model = myRNNModel()
+    
+    train(3000, model, optimizer)
+    evaluate(model)
+
+    # train_2(5000)
     
