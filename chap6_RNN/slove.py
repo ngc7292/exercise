@@ -148,16 +148,27 @@ def train_one_step(model, optimizer, x, y, seqlen):
         optimizer.apply_gradients(zip(grads, model.trainable_variables))
         return loss
 
+
 def train(epoch, model, optimizer, ds):
     loss = 0.0
     accuracy = 0.0
+    
+    min_loss = 10000
+    model_saver_path = './model_saver/{epoch}.h5'
+    
     for step, (x, y, seqlen) in enumerate(ds):
-        print(x[0])
         loss = train_one_step(model, optimizer, x, y, seqlen)
-
+        
         if step % 500 == 0:
             print('epoch', epoch, ': loss', loss.numpy())
-
+            
+            if loss < min_loss:
+                min_loss = loss
+                model.save_weights(model_saver_path.format(epoch))
+        
+        if min_loss > loss:
+            min_loss = loss
+            model.save
     return loss
 
 def gen_sentence():
@@ -175,7 +186,7 @@ if __name__ == '__main__':
     train_ds, word2id, id2word = poem_dataset()
     model = myRNNModel(word2id)
     
-    for epoch in range(10):
+    for epoch in range(1000):
         loss = train(epoch, model, optimizer, train_ds)
     
     # model = myRNNModel(word2id)
