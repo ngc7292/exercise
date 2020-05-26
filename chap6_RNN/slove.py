@@ -10,7 +10,7 @@ end_token = 'eos'
 
 def process_dataset(fileName):
     examples = []
-    with open(fileName, 'r',encoding='utf-8') as fd:
+    with open(fileName, 'r', encoding='utf-8') as fd:
         for line in fd:
             outs = line.strip().split(':')
             content = ''.join(outs[1:])
@@ -18,24 +18,24 @@ def process_dataset(fileName):
             if len(ins) > 200:
                 continue
             examples.append(ins)
-    
+
     counter = collections.Counter()
     for e in examples:
         for w in e:
             counter[w] += 1
-    
+
     sorted_counter = sorted(counter.items(), key=lambda x: -x[1])  # 排序
     words, _ = zip(*sorted_counter)
     words = ('PAD', 'UNK') + words[:len(words)]
     word2id = dict(zip(words, range(len(words))))
     id2word = {word2id[k]: k for k in word2id}
-    
+
     indexed_examples = [[word2id[w] for w in poem]
                         for poem in examples]
     seqlen = [len(e) for e in indexed_examples]
-    
+
     instances = list(zip(indexed_examples, seqlen))
-    
+
     return instances, word2id, id2word
 
 
@@ -44,47 +44,12 @@ def poem_dataset():
     ds = tf.data.Dataset.from_generator(lambda: [ins for ins in instances],
                                         (tf.int64, tf.int64),
                                         (tf.TensorShape([None]), tf.TensorShape([])))
-    ds = ds.shuffle(buffer_size=5000)
-    ds = ds.padded_batch(32, padded_shapes=(tf.TensorShape([None]), tf.TensorShape([])))
+    ds = ds.shuffle(buffer_size=10240)
+    ds = ds.padded_batch(100, padded_shapes=(tf.TensorShape([None]), tf.TensorShape([])))
     ds = ds.map(lambda x, seqlen: (x[:, :-1], x[:, 1:], seqlen - 1))
     return ds, word2id, id2word
 
 
-class myRNNModel(keras.Model):
-    def __init__(self, w2id):
-        super(myRNNModel, self).__init__()
-        self.v_sz = len(w2id)
-        self.embed_layer = tf.keras.layers.Embedding(self.v_sz, 64,
-                                                     batch_input_shape=[None, None])
-        
-        self.rnncell = tf.keras.layers.SimpleRNNCell(128)
-        self.rnn_layer = tf.keras.layers.RNN(self.rnncell, return_sequences=True)
-        self.dense = tf.keras.layers.Dense(self.v_sz)
-    
-    @tf.function
-    def call(self, inp_ids):
-        '''
-        此处完成建模过程，可以参考Learn2Carry
-        '''
-        
-        embed_output = self.embed_layer(inp_ids)
-        output = self.rnn_layer(embed_output)
-        logits = self.dense(output)
-        
-        return logits
-    
-    @tf.function
-    def get_next_token(self, x, state):
-        '''
-        shape(x) = [b_sz,]
-        '''
-        
-        inp_emb = self.embed_layer(x)  # shape(b_sz, emb_sz)
-        h, state = self.rnncell.call(inp_emb, state)  # shape(b_sz, h_sz)
-        logits = self.dense(h)  # shape(b_sz, v_sz)
-        out = tf.argmax(logits, axis=-1)
-        return out, state
-  
 def mkMask(input_tensor, maxLen):
     shape_of_input = tf.shape(input_tensor)
     shape_of_output = tf.concat(axis=0, values=[shape_of_input, [maxLen]])
@@ -105,17 +70,17 @@ def reduce_avg(reduce_target, lengths, dim):
     shape_of_target = reduce_target.get_shape()
     if len(shape_of_lengths) != dim:
         raise ValueError(('Second input tensor should be rank %d, ' +
-                         'while it got rank %d') % (dim, len(shape_of_lengths)))
-    if len(shape_of_target) < dim+1 :
+                          'while it got rank %d') % (dim, len(shape_of_lengths)))
+    if len(shape_of_target) < dim + 1:
         raise ValueError(('First input tensor should be at least rank %d, ' +
-                         'while it got rank %d') % (dim+1, len(shape_of_target)))
+                          'while it got rank %d') % (dim + 1, len(shape_of_target)))
 
     rank_diff = len(shape_of_target) - len(shape_of_lengths) - 1
     mxlen = tf.shape(reduce_target)[dim]
     mask = mkMask(lengths, mxlen)
-    if rank_diff!=0:
-        len_shape = tf.concat(axis=0, values=[tf.shape(lengths), [1]*rank_diff])
-        mask_shape = tf.concat(axis=0, values=[tf.shape(mask), [1]*rank_diff])
+    if rank_diff != 0:
+        len_shape = tf.concat(axis=0, values=[tf.shape(lengths), [1] * rank_diff])
+        mask_shape = tf.concat(axis=0, values=[tf.shape(mask), [1] * rank_diff])
     else:
         len_shape = tf.shape(lengths)
         mask_shape = tf.shape(mask)
@@ -128,12 +93,52 @@ def reduce_avg(reduce_target, lengths, dim):
     red_avg = red_sum / (tf.cast(lengths_reshape, dtype=tf.float32) + 1e-30)
     return red_avg
 
+
+class myRNNModel(keras.Model):
+    def __init__(self, w2id):
+        super(myRNNModel, self).__init__()
+        self.v_sz = len(w2id)
+        self.embed_layer = tf.keras.layers.Embedding(self.v_sz, output_dim=128,
+                                                     batch_input_shape=[None, None])
+        self.rnncell = tf.keras.layers.SimpleRNNCell(128)
+        self.rnn_layer = tf.keras.layers.RNN(self.rnncell, return_sequences=True)
+        self.lstmcell_1 = tf.keras.layers.LSTM(128, dropout=0.5, return_sequences=True)
+        self.lstmcell_2 = tf.keras.layers.LSTM(128, dropout=0.5, return_sequences=True)
+        self.dense = tf.keras.layers.Dense(self.v_sz)
+
+    @tf.function
+    def call(self, inp_ids):
+        '''
+        此处完成建模过程，可以参考Learn2Carry
+        '''
+        embed_out = self.embed_layer(inp_ids)
+        # rnn_out = self.rnn_layer(embed_out)
+        rnn_out_1 = self.lstmcell_1(embed_out)
+        rnn_out = self.lstmcell_2(rnn_out_1)
+        logits = self.dense(rnn_out)
+        return logits
+
+    @tf.function
+    def get_next_token(self, x, state):
+        '''
+        shape(x) = [b_sz,]
+        '''
+        inp_emb = self.embed_layer(x)  # shape(b_sz, emb_sz)
+        # h, state = self.rnncell.call(inp_emb, state)  # shape(b_sz, h_sz)
+        h_1,state_1 = self.lstmcell_1.call(inp_emb,state)
+        h,state = self.lstmcell_2.call(inp_emb,state_1)
+        logits = self.dense(h)  # shape(b_sz, v_sz)
+        out = tf.argmax(logits, axis=-1)
+        return out, state
+
+
 @tf.function
 def compute_loss(logits, labels, seqlen):
     losses = tf.nn.sparse_softmax_cross_entropy_with_logits(
-            logits=logits, labels=labels)
+        logits=logits, labels=labels)
     losses = reduce_avg(losses, seqlen, dim=1)
     return tf.reduce_mean(losses)
+
 
 @tf.function
 def train_one_step(model, optimizer, x, y, seqlen):
@@ -152,26 +157,25 @@ def train_one_step(model, optimizer, x, y, seqlen):
 def train(epoch, model, optimizer, ds):
     loss = 0.0
     accuracy = 0.0
-    
-    min_loss = 10000
-    model_saver_path = './model_saver/{epoch}.h5'
-    
+
+    model_save_path = "./model_saver_2/model_{epoch}_{loss}.h5"
+    min_loss = 100
+    flag = 0
+
     for step, (x, y, seqlen) in enumerate(ds):
         loss = train_one_step(model, optimizer, x, y, seqlen)
-        
+
         if step % 500 == 0:
             print('epoch', epoch, ': loss', loss.numpy())
-            
-            if loss < min_loss:
+
+            if min_loss > loss:
                 min_loss = loss
-                model.save_weights(model_saver_path.format(epoch))
-        
-        if min_loss > loss:
-            min_loss = loss
-            model.save
+                model.save_weights(model_save_path.format(epoch=epoch, loss=loss))
+
     return loss
 
-def gen_sentence():
+
+def gen_sentence(word2id, model, id2word):
     state = [tf.random.normal(shape=(1, 128), stddev=0.5), tf.random.normal(shape=(1, 128), stddev=0.5)]
     cur_token = tf.constant([word2id['bos']], dtype=tf.int32)
     collect = []
@@ -182,16 +186,15 @@ def gen_sentence():
 
 
 if __name__ == '__main__':
-    optimizer = optimizers.Adam(0.0005)
+    optimizer = optimizers.Adam(0.001)
     train_ds, word2id, id2word = poem_dataset()
     model = myRNNModel(word2id)
-    
-    for epoch in range(1000):
+
+    for epoch in range(10):
         loss = train(epoch, model, optimizer, train_ds)
-    
-    # model = myRNNModel(word2id)
+        for i in range(10):
+            print(gen_sentence(word2id, model, id2word))
+            print("\n")
+        print("================")
 
-    # for epoch in range(10):
-    #     loss = train(epoch, model, optimizer, train_ds)
-
-    # print(''.join(gen_sentence()))
+    model.summary()
