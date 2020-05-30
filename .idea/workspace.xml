@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5801a25-e3e8-4ed5-b958-5f935fbdd26a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/datalore.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Administrator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chap7-seq2seq-and-attention/seq2seq_reversal.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chap5_CNN/slove.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chap6_RNN/solve2.py" beforeDir="false" afterPath="$PROJECT_DIR$/chap6_RNN/solve2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chap7-seq2seq-and-attention/sequence_reversal-exercise.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/chap7-seq2seq-and-attention/sequence_reversal-exercise.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chap6_RNN/learn_rnn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chap6_RNN/slove.py" beforeDir="false" afterPath="$PROJECT_DIR$/chap6_RNN/slove.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +75,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.notebooks.jupyter.connections.configuration.JupyterServerConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.seq2seq_reversal">
+  <component name="RunManager" selected="Python.slove">
     <configuration name="cnn_slove_v2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="exercise" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -200,10 +195,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.seq2seq_reversal" />
-        <item itemvalue="Python.solve2" />
         <item itemvalue="Python.slove" />
         <item itemvalue="Python.learn2carry" />
+        <item itemvalue="Python.seq2seq_reversal" />
+        <item itemvalue="Python.solve2" />
         <item itemvalue="Python.cnn_slove_v2" />
       </list>
     </recent_temporary>
@@ -229,7 +224,7 @@
       <workItem from="1590372488467" duration="7132000" />
       <workItem from="1590487878874" duration="4465000" />
       <workItem from="1590754881513" duration="1928000" />
-      <workItem from="1590813292487" duration="5430000" />
+      <workItem from="1590813292487" duration="7209000" />
     </task>
     <servers />
   </component>
@@ -245,22 +240,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="601" y="188" key="#solve/0.0.1920.1040@0.0.1920.1040" timestamp="1590319873292" />
-    <state width="900" height="274" key="GridCell.Tab.0.bottom" timestamp="1590824668002">
+    <state width="1340" height="274" key="GridCell.Tab.0.bottom" timestamp="1590827679446">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="900" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590824668002" />
-    <state width="900" height="274" key="GridCell.Tab.0.center" timestamp="1590824668002">
+    <state width="1340" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590827679446" />
+    <state width="1340" height="274" key="GridCell.Tab.0.center" timestamp="1590827679445">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="900" height="274" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590824668002" />
-    <state width="900" height="274" key="GridCell.Tab.0.left" timestamp="1590824668002">
+    <state width="1340" height="274" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590827679445" />
+    <state width="1340" height="274" key="GridCell.Tab.0.left" timestamp="1590827679445">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="900" height="274" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590824668002" />
-    <state width="900" height="274" key="GridCell.Tab.0.right" timestamp="1590824668002">
+    <state width="1340" height="274" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590827679445" />
+    <state width="1340" height="274" key="GridCell.Tab.0.right" timestamp="1590827679445">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="900" height="274" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590824668002" />
+    <state width="1340" height="274" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590827679445" />
     <state width="1340" height="309" key="GridCell.Tab.1.bottom" timestamp="1590498212282">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -281,6 +276,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="406" y="241" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1590755128381" />
+    <state x="0" y="0" width="1048" height="677" key="dock-window-1" timestamp="1590827377708">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="0" y="0" width="1048" height="677" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1590827377708" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -332,7 +331,7 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/exercise$slove.coverage" NAME="slove Coverage Results" MODIFIED="1590373469569" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chap6_RNN" />
+    <SUITE FILE_PATH="coverage/exercise$slove.coverage" NAME="slove Coverage Results" MODIFIED="1590827810062" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chap6_RNN" />
     <SUITE FILE_PATH="coverage/exercise$solve.coverage" NAME="solve Coverage Results" MODIFIED="1590320689603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chap3_SVM" />
     <SUITE FILE_PATH="coverage/exercise$tf_exercise.coverage" NAME="tf_exercise Coverage Results" MODIFIED="1590320818576" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chap4_ simple neural network" />
     <SUITE FILE_PATH="coverage/exercise$exercise_slove.coverage" NAME="exercise_slove Coverage Results" MODIFIED="1590320790111" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chap3_softmax_regression" />
@@ -342,7 +341,7 @@
     <SUITE FILE_PATH="coverage/exercise$liner_regration.coverage" NAME="liner_regration Coverage Results" MODIFIED="1585573368149" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chap2_linear_regression" />
     <SUITE FILE_PATH="coverage/exercise$seq2seq_reversal.coverage" NAME="seq2seq_reversal Coverage Results" MODIFIED="1590824750010" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chap7-seq2seq-and-attention" />
     <SUITE FILE_PATH="coverage/exercise$logistic_regression.coverage" NAME="logistic_regression Coverage Results" MODIFIED="1590320775134" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chap3_softmax_regression" />
-    <SUITE FILE_PATH="coverage/exercise$learn2carry.coverage" NAME="learn2carry Coverage Results" MODIFIED="1590320869788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chap6_RNN" />
+    <SUITE FILE_PATH="coverage/exercise$learn2carry.coverage" NAME="learn2carry Coverage Results" MODIFIED="1590825334792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chap6_RNN" />
     <SUITE FILE_PATH="coverage/exercise$softmax_reg_tf.coverage" NAME="softmax_reg_tf Coverage Results" MODIFIED="1590320731541" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chap3_softmax_regression" />
   </component>
 </project>
