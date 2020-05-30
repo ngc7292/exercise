@@ -59,7 +59,6 @@ class myRNNModel(keras.Model):
         self.embed_layer = tf.keras.layers.Embedding(self.v_sz, 64,
                                                      batch_input_shape=[None, None])
 
-
         self.rnncell = tf.keras.layers.SimpleRNNCell(128)
         self.rnn_layer = tf.keras.layers.RNN(self.rnncell, return_sequences=True)
         self.dense = tf.keras.layers.Dense(self.v_sz)
@@ -108,17 +107,17 @@ def reduce_avg(reduce_target, lengths, dim):
     shape_of_target = reduce_target.get_shape()
     if len(shape_of_lengths) != dim:
         raise ValueError(('Second input tensor should be rank %d, ' +
-                         'while it got rank %d') % (dim, len(shape_of_lengths)))
-    if len(shape_of_target) < dim+1 :
+                          'while it got rank %d') % (dim, len(shape_of_lengths)))
+    if len(shape_of_target) < dim + 1:
         raise ValueError(('First input tensor should be at least rank %d, ' +
-                         'while it got rank %d') % (dim+1, len(shape_of_target)))
+                          'while it got rank %d') % (dim + 1, len(shape_of_target)))
 
     rank_diff = len(shape_of_target) - len(shape_of_lengths) - 1
     mxlen = tf.shape(reduce_target)[dim]
     mask = mkMask(lengths, mxlen)
-    if rank_diff!=0:
-        len_shape = tf.concat(axis=0, values=[tf.shape(lengths), [1]*rank_diff])
-        mask_shape = tf.concat(axis=0, values=[tf.shape(mask), [1]*rank_diff])
+    if rank_diff != 0:
+        len_shape = tf.concat(axis=0, values=[tf.shape(lengths), [1] * rank_diff])
+        mask_shape = tf.concat(axis=0, values=[tf.shape(mask), [1] * rank_diff])
     else:
         len_shape = tf.shape(lengths)
         mask_shape = tf.shape(mask)
@@ -135,9 +134,10 @@ def reduce_avg(reduce_target, lengths, dim):
 @tf.function
 def compute_loss(logits, labels, seqlen):
     losses = tf.nn.sparse_softmax_cross_entropy_with_logits(
-            logits=logits, labels=labels)
+        logits=logits, labels=labels)
     losses = reduce_avg(losses, seqlen, dim=1)
     return tf.reduce_mean(losses)
+
 
 @tf.function
 def train_one_step(model, optimizer, x, y, seqlen):
@@ -151,6 +151,7 @@ def train_one_step(model, optimizer, x, y, seqlen):
         grads = tape.gradient(loss, model.trainable_variables)
         optimizer.apply_gradients(zip(grads, model.trainable_variables))
         return loss
+
 
 def train(epoch, model, optimizer, ds):
     loss = 0.0
@@ -171,6 +172,7 @@ model = myRNNModel(word2id)
 for epoch in range(10):
     loss = train(epoch, model, optimizer, train_ds)
 
+
 def gen_sentence():
     state = [tf.random.normal(shape=(1, 128), stddev=0.5), tf.random.normal(shape=(1, 128), stddev=0.5)]
     cur_token = tf.constant([word2id['bos']], dtype=tf.int32)
@@ -179,4 +181,6 @@ def gen_sentence():
         cur_token, state = model.get_next_token(cur_token, state)
         collect.append(cur_token.numpy()[0])
     return [id2word[t] for t in collect]
+
+
 print(''.join(gen_sentence()))
