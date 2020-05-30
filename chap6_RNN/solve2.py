@@ -194,10 +194,6 @@ def build_model(text_class):
 
 
 class Evaluate(tf.keras.callbacks.Callback):
-    """
-    在每个epoch训练完成后，保留最优权重，并随机生成settings.SHOW_NUM首古诗展示
-    """
-
     def __init__(self):
         super().__init__()
         # 给loss赋一个较大的初始值
