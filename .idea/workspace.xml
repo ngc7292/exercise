@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5801a25-e3e8-4ed5-b958-5f935fbdd26a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/chap11_gaussian_mixture/gaussion_mixtrue.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +76,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.notebooks.jupyter.connections.configuration.JupyterServerConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.gaussion_mixtrue">
+  <component name="RunManager" selected="Python.solve">
     <configuration name="gaussion_mixtrue" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="exercise" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -91,28 +91,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/chap11_gaussian_mixture/gaussion_mixtrue.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="learn2carry" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="exercise" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/chap6_RNN" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/chap6_RNN/learn2carry.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -165,7 +143,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="slove" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="solve" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="exercise" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -173,12 +151,34 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/chap6_RNN" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/chap3_SVM" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/chap6_RNN/slove.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/chap3_SVM/solve.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tf_exercise" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="exercise" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/chap4_ simple neural network" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/chap4_ simple neural network/tf_exercise.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -188,19 +188,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.learn2carry" />
-      <item itemvalue="Python.slove" />
       <item itemvalue="Python.seq2seq_reversal_with_attention" />
       <item itemvalue="Python.logistic_regression" />
       <item itemvalue="Python.gaussion_mixtrue" />
+      <item itemvalue="Python.tf_exercise" />
+      <item itemvalue="Python.solve" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.solve" />
+        <item itemvalue="Python.tf_exercise" />
         <item itemvalue="Python.gaussion_mixtrue" />
         <item itemvalue="Python.logistic_regression" />
         <item itemvalue="Python.seq2seq_reversal_with_attention" />
-        <item itemvalue="Python.slove" />
-        <item itemvalue="Python.learn2carry" />
       </list>
     </recent_temporary>
   </component>
@@ -229,7 +229,7 @@
       <workItem from="1590849193513" duration="2643000" />
       <workItem from="1590887333959" duration="1534000" />
       <workItem from="1590889310743" duration="649000" />
-      <workItem from="1590992544272" duration="6539000" />
+      <workItem from="1590992544272" duration="8010000" />
     </task>
     <servers />
   </component>
@@ -245,22 +245,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="601" y="188" key="#solve/0.0.1920.1040@0.0.1920.1040" timestamp="1590319873292" />
-    <state width="1001" height="274" key="GridCell.Tab.0.bottom" timestamp="1591005041630">
+    <state width="1877" height="274" key="GridCell.Tab.0.bottom" timestamp="1591006447287">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1001" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591005041630" />
-    <state width="1001" height="274" key="GridCell.Tab.0.center" timestamp="1591005041629">
+    <state width="1877" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591006447287" />
+    <state width="1877" height="274" key="GridCell.Tab.0.center" timestamp="1591006447287">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1001" height="274" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591005041629" />
-    <state width="1001" height="274" key="GridCell.Tab.0.left" timestamp="1591005041629">
+    <state width="1877" height="274" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591006447287" />
+    <state width="1877" height="274" key="GridCell.Tab.0.left" timestamp="1591006447287">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1001" height="274" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591005041629" />
-    <state width="1001" height="274" key="GridCell.Tab.0.right" timestamp="1591005041629">
+    <state width="1877" height="274" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591006447287" />
+    <state width="1877" height="274" key="GridCell.Tab.0.right" timestamp="1591006447287">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1001" height="274" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591005041629" />
+    <state width="1877" height="274" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591006447287" />
     <state width="1001" height="326" key="GridCell.Tab.1.bottom" timestamp="1591005021418">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -349,8 +349,8 @@
     <SUITE FILE_PATH="coverage/exercise$seq2seq_reversal.coverage" NAME="seq2seq_reversal Coverage Results" MODIFIED="1590824750010" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chap7-seq2seq-and-attention" />
     <SUITE FILE_PATH="coverage/exercise$learn2carry.coverage" NAME="learn2carry Coverage Results" MODIFIED="1590825334792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chap6_RNN" />
     <SUITE FILE_PATH="coverage/exercise$logistic_regression.coverage" NAME="logistic_regression Coverage Results" MODIFIED="1590889543500" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chap3_softmax_regression" />
-    <SUITE FILE_PATH="coverage/exercise$solve.coverage" NAME="solve Coverage Results" MODIFIED="1590320689603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chap3_SVM" />
-    <SUITE FILE_PATH="coverage/exercise$tf_exercise.coverage" NAME="tf_exercise Coverage Results" MODIFIED="1590320818576" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chap4_ simple neural network" />
+    <SUITE FILE_PATH="coverage/exercise$tf_exercise.coverage" NAME="tf_exercise Coverage Results" MODIFIED="1591006320389" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chap4_ simple neural network" />
+    <SUITE FILE_PATH="coverage/exercise$solve.coverage" NAME="solve Coverage Results" MODIFIED="1591006447280" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chap3_SVM" />
     <SUITE FILE_PATH="coverage/exercise$char_rnn.coverage" NAME="char_rnn Coverage Results" MODIFIED="1585642285235" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chap6_RNN" />
     <SUITE FILE_PATH="coverage/exercise$seq2seq_reversal_with_attention.coverage" NAME="seq2seq_reversal_with_attention Coverage Results" MODIFIED="1590854220729" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chap7-seq2seq-and-attention" />
     <SUITE FILE_PATH="coverage/exercise$softmax_reg_tf.coverage" NAME="softmax_reg_tf Coverage Results" MODIFIED="1590320731541" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chap3_softmax_regression" />
